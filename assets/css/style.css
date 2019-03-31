@@ -1,10 +1,18 @@
+#bootstrap-overrides{
+    background-image: url(https://cdna.artstation.com/p/assets/images/images/004/870/248/large/ahmx-firdaus-west-town-final.jpg?1486887392);
+    background-size: cover;
+}
+
+
 #bootstrap-overrides #pageTitle {
-    color: blue;
+    color: #8B4513;
     text-align: center;
       
 }
-
+#bootstrap-overrides .jumbotron{
+    background-color: #BC8F8F;
+}
 #bootstrap-overrides, .panel-heading, .wins-panel, .losses-panel, .guesses-left-panel {
-    text-align: center;
-    
+    text-align: center; 
+    color: #bf7e05;
 }

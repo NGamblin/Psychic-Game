@@ -6,7 +6,7 @@ var hiddenAndGuessed = [];
 var wrongLetters = [];
 var winCounter = 0;
 var lossCounter = 0;
-var remainingGuesses = 10;
+var remainingGuesses = 9;
 var keyPressed;
  
 function begin () {
@@ -15,7 +15,7 @@ function begin () {
     hiddenLetters = chosenWordLetters.length;
 
     wrongLetters = [];
-    remainingGuesses = 10;
+    remainingGuesses = 9;
     hiddenAndGuessed = [];
 
     for ( var i=0; i<hiddenLetters; i++){
@@ -30,7 +30,7 @@ function begin () {
 
     document.getElementById("wins").innerHTML = "Wins: " + winCounter;
     document.getElementById("losses").innerHTML = "Losses: " + lossCounter;
-    document.getElementById("lettersGuessed").innerHTML= wrongLetters;
+    document.getElementById("lettersGuessed").innerHTML= "Letters Guessed: " + wrongLetters;
     document.getElementById("currentWord").innerHTML = hiddenAndGuessed.join("  ");
     document.getElementById("guessesLeft").innerHTML = "Guesses Left: " + remainingGuesses;
 
@@ -46,7 +46,7 @@ function begin () {
                 hiddenAndGuessed[i] = keyPressed;
                 console.log(hiddenAndGuessed);
                 document.getElementById("currentWord").innerHTML = hiddenAndGuessed.join("  ");
-                if (chosenWordLetters.toString() == hiddenAndGuessed.String()){
+                if (chosenWordLetters.toString() == hiddenAndGuessed.toString()){
                     winCounter++;
                     begin();
                     
@@ -62,7 +62,7 @@ function begin () {
         document.getElementById("guessesLeft").innerHTML = "Guesses Left: " + remainingGuesses;
         wrongLetters.push(keyPressed)
         console.log(wrongLetters);
-        document.getElementById("lettersGuessed").innerHTML= wrongLetters;
+        document.getElementById("lettersGuessed").innerHTML= "Letters Guessed: " + wrongLetters.join("  ");
         if (remainingGuesses <1){
             lossCounter++;
             begin();
