@@ -8,7 +8,7 @@ var winCounter = 0;
 var lossCounter = 0;
 var remainingGuesses = 10;
 var keyPressed;
-//====================================================================================================================
+ 
 function begin () {
     chosenWord = wordChoices[Math.floor(Math.random() * wordChoices.length)];
     chosenWordLetters = chosenWord.split("");
@@ -30,21 +30,27 @@ function begin () {
 
     document.getElementById("wins").innerHTML = "Wins: " + winCounter;
     document.getElementById("losses").innerHTML = "Losses: " + lossCounter;
+    document.getElementById("lettersGuessed").innerHTML= wrongLetters;
     document.getElementById("currentWord").innerHTML = hiddenAndGuessed.join("  ");
     document.getElementById("guessesLeft").innerHTML = "Guesses Left: " + remainingGuesses;
 
 
     }
 
- //====================================================================================================================== 
-    // function letterChecker (){
-    //     if (chosenWordLetters.includes(keyPressed) ==) {}
-    //     }
+ //=================================================================================================================
 
     function correctGuess (){
         for (var i=0; i<hiddenLetters; i++){
             if(chosenWordLetters[i] == keyPressed){
                 console.log([i]);
+                hiddenAndGuessed[i] = keyPressed;
+                console.log(hiddenAndGuessed);
+                document.getElementById("currentWord").innerHTML = hiddenAndGuessed.join("  ");
+                if (chosenWordLetters.toString() == hiddenAndGuessed.String()){
+                    winCounter++;
+                    begin();
+                    
+                }
                 
             }           
         }
@@ -53,6 +59,14 @@ function begin () {
     function wrongGuess () {
         remainingGuesses--;
         console.log(remainingGuesses);
+        document.getElementById("guessesLeft").innerHTML = "Guesses Left: " + remainingGuesses;
+        wrongLetters.push(keyPressed)
+        console.log(wrongLetters);
+        document.getElementById("lettersGuessed").innerHTML= wrongLetters;
+        if (remainingGuesses <1){
+            lossCounter++;
+            begin();
+        }       
     }
         
      
@@ -72,19 +86,7 @@ function begin () {
             console.log(keyPressed + " is not in the word!");
             wrongGuess ();
         }
-
-
     }
-    
-
-
-
-
-
-  
-
-
-
 
 
 
