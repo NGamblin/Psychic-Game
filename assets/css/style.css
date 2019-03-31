@@ -1,0 +1,10 @@
+#bootstrap-overrides #pageTitle {
+    color: blue;
+    text-align: center;
+      
+}
+
+#bootstrap-overrides, .panel-heading, .wins-panel, .losses-panel, .guesses-left-panel {
+    text-align: center;
+    
+}
